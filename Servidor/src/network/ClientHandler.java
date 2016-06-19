@@ -30,7 +30,7 @@ public class ClientHandler extends Thread{
 			} catch (IOException e) {
 				conectado = false;
 				System.out.println("Cliente " + s.getInetAddress() + " desconectado");
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 	}

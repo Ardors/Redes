@@ -19,6 +19,7 @@ public class MainCliente {
 			s = new Socket(Constantes.SERVER_HOST, Constantes.SERVER_PORT);
 			conectado = true;
 			ServerHandler sh = new ServerHandler(s);
+			sh.start();
 		} catch (UnknownHostException e) {
 			conectado = false;
 			e.printStackTrace();
@@ -26,6 +27,7 @@ public class MainCliente {
 			conectado = false;
 			e.printStackTrace();
 		}
+		System.out.println("bienvenido");
 		while(conectado){
 				try {
 					DataOutputStream dout = new DataOutputStream(s.getOutputStream());
@@ -35,10 +37,6 @@ public class MainCliente {
 					}else{
 						System.exit(0);
 					}
-					InputStream is = s.getInputStream();
-					DataInputStream di = new DataInputStream(is);
-					String m = di.readLine();
-					System.out.println(m);
 				} catch (IOException e) {
 					conectado = false;
 					e.printStackTrace();
